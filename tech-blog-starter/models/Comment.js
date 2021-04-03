@@ -6,13 +6,12 @@ class Comment extends Model {}
 
 Comment.init(
     {
-        id: {
+        body: {
             type: DataTypes.INTEGER,
             allowNull: false,
-            primaryKey: true,
-            autoIncrement: true
           },
-    }
+    },         
+    {sequelize}
 )
 
 module.exports = Comment;

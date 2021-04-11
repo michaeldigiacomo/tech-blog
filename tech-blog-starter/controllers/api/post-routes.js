@@ -23,7 +23,8 @@ router.put('/:id', withAuth, async (req, res) => {
     const [affectedRows] = await Post.update(req.body, {
       // TODO: SET ID TO ID PARAMETER INSIDE WHERE CLAUSE CONDITION FIELD
       where: {
-        id: req.params.id
+        id: req.params.id,
+        userId: req.session.userId
       }
     });
 
@@ -43,6 +44,8 @@ router.delete('/:id', withAuth, async (req, res) => {
       // TODO: SET ID TO ID PARAMETER INSIDE WHERE CLAUSE CONDITION FIELD
       where: {
         id: req.params.id,
+        userId: req.session.userId
+
       }
     });
 
